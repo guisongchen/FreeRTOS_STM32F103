@@ -13,16 +13,16 @@ void Key_init() {
 uint8_t Key_getNum() {
     uint8_t num = 0;
     if (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_1) == 0) {
-        Delay_ms(20);
+//        Delay_ms(20);
         while (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_1) == 0);
-        Delay_ms(20);
+//        Delay_ms(20);
         num = 1;
     }
     
     if (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_11) == 0) {
-        Delay_ms(20);
+//        Delay_ms(20);
         while (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_11) == 0);
-        Delay_ms(20);
+//        Delay_ms(20);
         num = 2;
     }
     
