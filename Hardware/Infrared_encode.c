@@ -25,12 +25,12 @@ void InfraredEncode_init(void) {
     EXTI_Init(&EXTIConf);
     
     // NVIC config
-    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
     NVIC_InitTypeDef NVICConf;
     NVICConf.NVIC_IRQChannel = EXTI15_10_IRQn;
     NVICConf.NVIC_IRQChannelCmd = ENABLE;
     NVICConf.NVIC_IRQChannelPreemptionPriority = 1;
-    NVICConf.NVIC_IRQChannelSubPriority = 1;
+    NVICConf.NVIC_IRQChannelSubPriority = 0;
     NVIC_Init(&NVICConf);
     
     cnt = 0;
