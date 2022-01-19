@@ -31,9 +31,8 @@ static void LowPriority_Task(void *param) {
 		
 		xRet = xSemaphoreGive(BinarySem_Handle);
 		printf("Low priority task release semaphore\n");
+		vTaskDelay(500);
     }
-	
-	vTaskDelay(500);
 }
 
 static void MidPriority_Task(void *param) {
@@ -45,7 +44,6 @@ static void MidPriority_Task(void *param) {
 }
 
 static void HighPriority_Task(void *param) {
-	vTaskDelay(500);
 	printf("Create HighPriority_Task!\n");
 	BaseType_t xRet = pdFAIL;
     while (1) {
@@ -58,9 +56,9 @@ static void HighPriority_Task(void *param) {
 		
 		xRet = xSemaphoreGive(BinarySem_Handle);
 		printf("High priority task release semaphore\n");
+		
+		vTaskDelay(500);
     }
-	
-	vTaskDelay(500);
 }
 
 
