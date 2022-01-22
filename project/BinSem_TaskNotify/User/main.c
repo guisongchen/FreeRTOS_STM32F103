@@ -16,12 +16,9 @@ static void Send_Task(void *param) {
 		data = Key_getNum();
 		if (data != 0) {
 			xRet = xTaskNotifyGive(Receive_Task_Handle);
-			
-			if (xRet == pdPASS) {
-				printf("Give Semaphore successed!\n");
-			} else {
-				printf("Give Semaphore failed! return val:%ld\n", xRet);
-			}
+			// xRet will alway to pdTRUE
+			printf("Give Semaphore successed!\n");
+
 		}
     }
 	
@@ -32,11 +29,8 @@ static void Receive_Task(void *param) {
 	BaseType_t xRet = pdFAIL;
     while (1) {
 		xRet = ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-		if (xRet == pdPASS) {
-			printf("Take Semaphore successed!\n");
-		} else {
-			printf("Take Semaphore failed!\n");
-		}
+		// clear count set be pdTrue, so xRet will alway be 1 
+		printf("Take Semaphore successed!\n");
     }
 }
 
